@@ -6,9 +6,9 @@
 
 ## 配置功能
 
-- [] React 相关依赖
-- [] TypeScript 编译
-- [] Less 编译
-- [] Babel 编译
-- [] 打包压缩
-- [] 热重载
+- [ ] React 相关依赖
+- [ ] TypeScript 编译
+- [ ] Less 编译
+- [ ] Babel 编译
+- [ ] 打包压缩
+- [ ] 热重载
