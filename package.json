@@ -18,5 +18,8 @@
   "homepage": "https://github.com/DangoSky/react-scaffold#readme",
   "devDependencies": {
     "webpack": "^4.44.1"
+  },
+  "dependencies": {
+    "react": "^16.13.1"
   }
 }
