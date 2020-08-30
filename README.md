@@ -12,3 +12,6 @@
 - [ ] Babel 编译
 - [ ] 打包压缩
 - [ ] 热重载
+- [ ] Eslint 检查
+- [ ] Source Map
+- [ ] tree-shaking
