@@ -7,7 +7,10 @@ const devConfig = merge(commonConfig, {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 3000
+    port: 3000,
+    hot: true,
+    open: true,
+    progress: true,
   }
 })
 

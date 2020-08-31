@@ -6,7 +6,7 @@
 
 ## 配置功能
 
-- [ ] React 相关依赖
+- [x] React 相关依赖
 - [ ] TypeScript 编译
 - [ ] Less 编译
 - [ ] Babel 编译
