@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const commonConfig = {
   entry: [
@@ -8,13 +10,17 @@ const commonConfig = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'static/js/bundle.js'
   },
   plugins: [
     // 生成 HTML 文件并自动导入静态文件等
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/index.html'),
       filename: 'index.html'
+    }),
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "static/css/[name].[hash].css",
     })
   ],
   module: {
@@ -28,10 +34,10 @@ const commonConfig = {
       exclude: /node_modules/
     }, {
       test: /\.css$/,
-      use: ['style-loader', 'css-loader'] 
+      use: [MiniCssExtractPlugin.loader, 'css-loader'] 
     }, {
       test: /\.less$/,
-      use: ['style-loader', 'css-loader', 'less-loader'] 
+      use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'] 
     }, {
       test: /.*\.(gif|png|jpe?g)$/i,
       use: [
@@ -39,14 +45,11 @@ const commonConfig = {
           loader: 'url-loader',
           options: {
             limit: 5120,
-            // 加上hash解决名称冲突问题
-            // name: 'static/imgs/[name]@[hash:8].[ext]',
-            name: '[name].[hash:8].[ext]',
-            // esModule: false
+            name: 'static/imgs/[name].[hash:8].[ext]',
           }
         }
       ]
-    },]
+    }]
   },
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ],
