@@ -2,6 +2,21 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const postCssLoaderConfig = {
+  loader: 'postcss-loader',
+  options: {
+    plugins: [
+      require('autoprefixer')({
+        // 要适配的浏览器
+        overrideBrowserslist: [
+          'Chrome > 31',
+          'ff > 31',
+          'ie >= 10'
+        ]
+      })
+    ]
+  }
+};
 
 const commonConfig = {
   entry: [
@@ -10,7 +25,7 @@ const commonConfig = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'static/js/bundle.js'
+    filename: 'static/js/[name].js'
   },
   plugins: [
     // 生成 HTML 文件并自动导入静态文件等
@@ -34,25 +49,23 @@ const commonConfig = {
       exclude: /node_modules/
     }, {
       test: /\.css$/,
-      use: [MiniCssExtractPlugin.loader, 'css-loader'] 
+      use: [MiniCssExtractPlugin.loader, 'css-loader', postCssLoaderConfig]
     }, {
       test: /\.less$/,
-      use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'] 
+      use: [MiniCssExtractPlugin.loader, 'css-loader', postCssLoaderConfig, 'less-loader']
     }, {
       test: /.*\.(gif|png|svg|jpe?g)$/i,
-      use: [
-        {
-          loader: 'url-loader',
-          options: {
-            limit: 5120,
-            name: 'static/imgs/[name].[hash:8].[ext]',
-          }
+      use: [{
+        loader: 'url-loader',
+        options: {
+          limit: 5120,
+          name: 'static/imgs/[name].[hash:8].[ext]',
         }
-      ]
+      }]
     }]
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ],
+    extensions: ['.tsx', '.ts', '.js'],
     // 解析目录时要使用的文件名
     mainFiles: ['index.tsx', 'index.ts', 'index'],
     // 使用 TS 的话还需在 tsconfig.json 里也配置 alias，否则会有 TS 报错
