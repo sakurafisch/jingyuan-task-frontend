@@ -39,7 +39,7 @@ const commonConfig = {
       test: /\.less$/,
       use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'] 
     }, {
-      test: /.*\.(gif|png|jpe?g)$/i,
+      test: /.*\.(gif|png|svg|jpe?g)$/i,
       use: [
         {
           loader: 'url-loader',
