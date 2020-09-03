@@ -6,9 +6,10 @@
 
 ## 配置功能
 
-- [x] React 相关依赖
+- [ ] React 相关依赖，包括 React-Router
 - [x] TypeScript 编译
 - [x] Less 编译
+- [ ] Antd
 - [x] Babel 编译
 - [ ] 打包压缩
 - [x] 热重载
