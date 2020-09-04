@@ -44,40 +44,42 @@ const commonConfig = {
     new WebpackDeepScopeAnalysisPlugin()
   ],
   module: {
-    rules: [
-      {
-      test: /\.(jsx?|tsx?)$/,
-      loader: 'babel-loader',
-      exclude: /node_modules/,
-      options: {
-        presets: ['@babel/preset-env', '@babel/preset-react'],
-        plugins: [["import", { libraryName: "antd", style: "css" }]]
-    }
-    }, {
-      test: /\.tsx?$/,
-      use: 'ts-loader',
-      exclude: /node_modules/
-    }, 
-    
-
-    {
-    // },
-    // {
-      test: /\.css$/,
-      use: [MiniCssExtractPlugin.loader, 'css-loader', postCssLoaderConfig]
-    }, {
-      test: /\.less$/,
-      use: [MiniCssExtractPlugin.loader, 'css-loader', postCssLoaderConfig, 'less-loader']
-    }, {
-      test: /.*\.(gif|png|svg|jpe?g)$/i,
-      use: [{
-        loader: 'url-loader',
+    rules: [{
+        test: /\.(jsx?|tsx?)$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
         options: {
-          limit: 5120,
-          name: 'static/imgs/[name].[hash:8].[ext]',
+          // babel-plugin-import 需要在 webpack 里配置，在 .babelrc 里配置会失效，并且 tsconfg.json 中的 module 不能设置为 commonjs
+          // https://github.com/ant-design/babel-plugin-import/issues/73
+          plugins: [
+            ["import", {
+              libraryName: "antd",
+              style: "css"
+            }]
+          ]
         }
-      }]
-    }]
+      }, {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', postCssLoaderConfig]
+      }, {
+        test: /\.less$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', postCssLoaderConfig, 'less-loader']
+      }, {
+        test: /.*\.(gif|png|svg|jpe?g)$/i,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 5120,
+            name: 'static/imgs/[name].[hash:8].[ext]',
+          }
+        }]
+      }
+    ]
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],

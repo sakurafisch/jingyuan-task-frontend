@@ -2,8 +2,7 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "noImplicitAny": true,
-    "module": "esnext",
-    // "module": "es2015",
+    "module": "esnext", // esnext 表示最新版本的 es
     "target": "es5",
     "jsx": "react",
     "allowJs": true,

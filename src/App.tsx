@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { Button } from 'antd';
 import './style.less';
 import logoImg from '@img/logo.svg';
-// import 'antd/dist/antd.css';
 
 class App extends PureComponent {
   render() {
