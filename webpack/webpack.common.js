@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {
+  CleanWebpackPlugin
+} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackDeepScopeAnalysisPlugin = require('webpack-deep-scope-plugin').default;
 
@@ -42,15 +44,25 @@ const commonConfig = {
     new WebpackDeepScopeAnalysisPlugin()
   ],
   module: {
-    rules: [{
+    rules: [
+      {
       test: /\.(jsx?|tsx?)$/,
       loader: 'babel-loader',
       exclude: /node_modules/,
+      options: {
+        presets: ['@babel/preset-env', '@babel/preset-react'],
+        plugins: [["import", { libraryName: "antd", style: "css" }]]
+    }
     }, {
       test: /\.tsx?$/,
       use: 'ts-loader',
       exclude: /node_modules/
-    }, {
+    }, 
+    
+
+    {
+    // },
+    // {
       test: /\.css$/,
       use: [MiniCssExtractPlugin.loader, 'css-loader', postCssLoaderConfig]
     }, {
