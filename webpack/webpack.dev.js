@@ -1,13 +1,16 @@
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
-const commonConfig = require('./webpack.common.js');
 const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const commonConfig = require('./webpack.common.js');
 
 const devConfig = merge(commonConfig, {
   mode: 'development',
   devtool: "cheap-module-eval-source-map",
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new BundleAnalyzerPlugin(),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),

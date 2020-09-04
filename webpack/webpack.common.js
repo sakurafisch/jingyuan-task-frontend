@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackDeepScopeAnalysisPlugin = require('webpack-deep-scope-plugin').default;
+
 const postCssLoaderConfig = {
   loader: 'postcss-loader',
   options: {
@@ -36,7 +38,8 @@ const commonConfig = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "static/css/[name].[hash].css",
-    })
+    }),
+    new WebpackDeepScopeAnalysisPlugin()
   ],
   module: {
     rules: [{
