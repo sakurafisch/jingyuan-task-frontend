@@ -1,4 +1,4 @@
-# react-scaffold
+# react-scaffold-app
 
 ## 描述
 
@@ -9,10 +9,11 @@
 - [ ] React 相关依赖，包括 React-Router
 - [x] TypeScript 编译
 - [x] Less 编译
-- [ ] Antd
+- [x] Antd
 - [x] Babel 编译
 - [ ] 打包压缩
 - [x] 热重载
-- [ ] Eslint 检查
-- [ ] Source Map
-- [ ] tree-shaking
+- [ ] Eslint
+
+## 使用方法
+
