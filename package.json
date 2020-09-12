@@ -2,7 +2,11 @@
   "name": "react-scaffold-app",
   "version": "1.0.1",
   "description": "a react-scaffold built by dangosky",
-  "keywords": ["react", "react-scaffold", "webpack"],
+  "keywords": [
+    "react",
+    "react-scaffold",
+    "webpack"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
