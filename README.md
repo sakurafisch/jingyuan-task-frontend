@@ -1,4 +1,4 @@
-# react-scaffold-app
+# react-scaffold-template
 
 ## 描述
 
@@ -14,6 +14,3 @@
 - [ ] 打包压缩
 - [x] 热重载
 - [ ] Eslint
-
-## 使用方法
-
