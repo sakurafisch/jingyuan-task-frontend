@@ -1,5 +1,5 @@
 {
-  "name": "react-scaffold-template",
+  "name": "{{projectName}}",
   "version": "1.0.1",
   "keywords": [
     "react",
