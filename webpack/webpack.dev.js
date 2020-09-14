@@ -16,6 +16,7 @@ const devConfig = merge(commonConfig, {
     hot: true,
     open: true,
     progress: true,
+    historyApiFallback: true // avoid 404 when using BrowserRouter 
   }
 })
 
