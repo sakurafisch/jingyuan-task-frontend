@@ -11,7 +11,6 @@ const postCssLoaderConfig = {
   options: {
     plugins: [
       require('autoprefixer')({
-        // 要适配的浏览器
         overrideBrowserslist: [
           'Chrome > 31',
           'ff > 31',
@@ -32,7 +31,6 @@ const commonConfig = {
     filename: 'static/js/[name].js'
   },
   plugins: [
-    // 生成 HTML 文件并自动导入静态文件等
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/index.html'),
       filename: 'index.html'
@@ -49,8 +47,6 @@ const commonConfig = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
-          // babel-plugin-import 需要在 webpack 里配置，在 .babelrc 里配置会失效，并且 tsconfg.json 中的 module 不能设置为 commonjs
-          // https://github.com/ant-design/babel-plugin-import/issues/73
           plugins: [
             ["import", {
               libraryName: "antd",
@@ -83,9 +79,7 @@ const commonConfig = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-    // 解析目录时要使用的文件名
     mainFiles: ['index.tsx', 'index.ts', 'index'],
-    // 使用 TS 的话还需在 tsconfig.json 里也配置 alias，否则会有 TS 报错
     alias: {
       '@src': path.resolve(__dirname, '../src'),
       '@img': path.resolve(__dirname, '../img'),
