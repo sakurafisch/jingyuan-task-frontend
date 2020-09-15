@@ -27,10 +27,11 @@ cp -rf ./README.md ./prod-template/
 node ./lib/handle.js
 
 git branch -D prod-template
+git push origin --delete prod-template
 git checkout -b prod-template
-git add prod-template/*
+git add prod-template/.
 git commit -m "update templates on $var1"
-git push origin prod-template:prod-template
+git subtree push --prefix prod-template origin prod-template
 git checkout master
 
 rm -rf ./prod-template
