@@ -11,8 +11,9 @@
     "baseUrl": "./",
     "paths": {
       "src/*": ["./src/*"],
-      "pages/*": ["./src/pages/*"],
       "img/*": ["./img/*"],
+      "pages/*": ["./src/pages/*"],
+      "api/*": ["./src/api/*"],
     }
   },
   "include": [

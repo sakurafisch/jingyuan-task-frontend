@@ -82,8 +82,9 @@ const commonConfig = {
     mainFiles: ['index.tsx', 'index.ts', 'index'],
     alias: {
       'src': path.resolve(__dirname, '../src'),
-      'pages': path.resolve(__dirname, '../src/pages'),
       'img': path.resolve(__dirname, '../img'),
+      'pages': path.resolve(__dirname, '../src/pages'),
+      'api': path.resolve(__dirname, '../src/api'),
     },
   },
 };
