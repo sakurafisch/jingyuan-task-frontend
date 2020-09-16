@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import './style.less';
-import logoImg from '@img/logo.svg';
+import logoImg from 'img/logo.svg';
 
 class App extends PureComponent {
   render() {

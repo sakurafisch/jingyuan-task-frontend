@@ -1,20 +1,23 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "../dist/",
     "noImplicitAny": true,
     "module": "esnext",
     "target": "es5",
     "jsx": "react",
     "allowJs": true,
     "esModuleInterop": true,
-    "baseUrl": ".",
+    "moduleResolution": "node",
+    "baseUrl": "./",
     "paths": {
-      "@src/*": ["./src/*"],
-      "@img/*": ["./img/*"],
+      "src/*": ["./src/*"],
+      "pages/*": ["./src/pages/*"],
+      "img/*": ["./img/*"],
     }
   },
   "include": [
-    "./src/*", "images.d.ts"
+    "./src/*",
+    "./images.d.ts"
   ],
   "exclude": [
     "./node_modules"

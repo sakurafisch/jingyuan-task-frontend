@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './style.less';
-import Home from './pages/home';
+import Home from 'pages/home';
 
 class App extends PureComponent {
   render() {
