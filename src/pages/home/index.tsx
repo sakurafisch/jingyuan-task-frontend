@@ -7,8 +7,7 @@ class App extends PureComponent {
     return (
       <div className="app-container">
         <img src={logoImg} className="app-logo" />
-        <h1>Hello React Scaffold</h1>
-        <h2>DangoSky</h2>
+        <h1>你好，沈阳换热站</h1>
       </div>
     );
   }
