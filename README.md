@@ -16,6 +16,19 @@
 
 开发`login`模块及其子模块
 
+### 2020年10月8日
+
+```bash
+yarn
+yarn add echarts --save
+```
+
+删除`package-lock.json`以避免使用`npm`
+
+做了一下首页的`SideBar`
+
+`TODO: chart/histogram`
+
 ## 模板
 
 built by [DangoSky/react-scaffold-template](https://github.com/DangoSky/react-scaffold-template)

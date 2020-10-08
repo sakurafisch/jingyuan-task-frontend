@@ -58,6 +58,7 @@
     "antd": "^3.23.4",
     "axios": "^0.20.0",
     "core-decorators": "^0.20.0",
+    "echarts": "^4.9.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router": "^5.2.0",
