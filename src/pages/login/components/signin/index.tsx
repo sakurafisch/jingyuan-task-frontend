@@ -6,7 +6,7 @@ import { FormComponentProps } from 'antd/es/form';
 import { HomePageCurComponents, LoginType } from 'src/enum';
 import { autobind } from 'core-decorators';
 import { MESSAGE_TIME } from '../../../../const/const'
-import { loginUser } from '../../../../api/modules/login'
+import axios from 'axios';
 
 
 interface Props extends FormComponentProps, RouteComponentProps {
@@ -35,24 +35,38 @@ class Signin extends Component<Props, any> {
                 return;
             }
 
-            const { code, message: text } = await loginUser(values);
-
-            const path = {
-                pathname: '/home',
-                state: values,
-            };
-
-            if (code === LoginType.LOGIN_SUCCESS) {
-                message.success('登录成功', MESSAGE_TIME);
-                this.props.history.push(path);
-            } else {
-                this.props.form.setFields({
-                    password: {
-                        value: values.password,
-                        errors: [new Error(text)],
-                    }
-                });
+            const response = await axios({
+                baseURL: 'http://127.0.0.1:5000/',
+                method: 'get',
+                auth: {
+                    username: values.email.split('@')[0],
+                    password: values.password
+                }
+                // headers: {
+                //     'Content-Type': 'application/x-www-form-urlencoded',
+                //     'Authorization': 'Basic ' + btoa(values.email.split('@')[0] + ':' + values.password),
+                //     // 通过 Authorization 传递 base64 编码后的用户名密码
+                //   },
+            }).then(response => {
+                return response.data;
+              }).catch(error => {
+                console.log(error);
                 message.error('登录失败', MESSAGE_TIME);
+                if (error.response) {
+                  return Promise.reject(error.response.data);
+                }
+                return Promise.reject(error);
+              });
+
+            console.log(response);
+            console.log(response);  
+              
+            if (response.code = 1) {
+                message.success('登录成功', MESSAGE_TIME);
+                this.props.history.push({
+                    pathname: '/home',
+                    state: values,
+                });
             }
         });
     }

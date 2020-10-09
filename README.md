@@ -27,7 +27,11 @@ yarn add echarts --save
 
 做了一下首页的`SideBar`
 
-`TODO: chart/histogram`
+### 2020年10月9日
+
+整理了一下首页的代码
+
+登录功能勉强能用
 
 ## 模板
 

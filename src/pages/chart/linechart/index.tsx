@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class Histogram extends Component {
+export default class Linechart extends Component {
     render() {
         return (
             <div>
-                Histogram
+                折线图
             </div>
         )
     }
