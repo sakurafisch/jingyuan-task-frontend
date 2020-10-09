@@ -51,6 +51,10 @@ yarn remove echarts
 
 之后可能会用 [antd-chart](https://charts.ant.design/demos/column/#%E5%9F%BA%E7%A1%80%E6%9F%B1%E7%8A%B6%E5%9B%BE) 来绘制柱状图和折线图。
 
+### 2020年10月9日晚上
+
+表格已经可用。接下来准备做柱状图和折线图了。
+
 ## 模板
 
 built by [DangoSky/react-scaffold-template](https://github.com/DangoSky/react-scaffold-template)
