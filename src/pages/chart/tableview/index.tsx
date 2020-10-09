@@ -39,10 +39,10 @@ export default class Tableview extends Component<any, any> {
                 this.setState({
                     columns : [
                         { code: 'ReportTime', name: '记录时间', width: 100 },
-                        { code: 'T1', name: '一网供水温度', width: 100, align: 'right' },
-                        { code: 'T2', name: '一网回水温度', width: 100, align: 'right' },
-                        { code: 'T3', name: '二网供水温度', width: 100, align: 'right' },
-                        { code: 'T4', name: '二网回水温度', width: 100, align: 'right' },
+                        { code: 'T1', name: '一网供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T2', name: '一网回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T3', name: '二网供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T4', name: '二网回水温度/℃', width: 100, align: 'right' },
                         { code: 'T5', name: '一网供水压力/MPa', width: 100, align: 'right' },
                         { code: 'T5', name: '一网供水压力/MPa', width: 100, align: 'right' },
                         { code: 'T6', name: '一网回水压力/MPa', width: 100, align: 'right' },
@@ -69,11 +69,10 @@ export default class Tableview extends Component<any, any> {
                 this.setState({
                     columns : [
                         { code: 'ReportTime', name: '记录时间', width: 100 },
-                        { code: 'T1', name: '一网供水温度', width: 100, align: 'right' },
-                        { code: 'T2', name: '一网回水温度', width: 100, align: 'right' },
-                        { code: 'T3', name: '二网供水温度', width: 100, align: 'right' },
-                        { code: 'T4', name: '二网回水温度', width: 100, align: 'right' },
-                        { code: 'T5', name: '一网供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T1', name: '一网供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T2', name: '一网回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T3', name: '二网供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T4', name: '二网回水温度/℃', width: 100, align: 'right' },
                         { code: 'T5', name: '一网供水压力/MPa', width: 100, align: 'right' },
                         { code: 'T6', name: '一网回水压力/MPa', width: 100, align: 'right' },
                         { code: 'T7', name: '二网供水压力/MPa', width: 100, align: 'right' },
@@ -96,6 +95,301 @@ export default class Tableview extends Component<any, any> {
                     ]
                 });
                 break;
+            case 'V10005':
+            case 'V10006':
+            case 'V10007':
+            case 'V10008':
+            case 'V10009':
+            case 'V10024':
+            case 'V10025':
+                this.setState({
+                    columns: [
+                        { code: 'ReportTime', name: '记录时间', width: 100 },
+                        { code: 'T1', name: '一网供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T2', name: '一网回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T3', name: '二网低区供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T4', name: '二网低区回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T5', name: '二网高区供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T6', name: '二网高区回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T7', name: '一网供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T8', name: '一网回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T9', name: '二网低区供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T10', name: '低区回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T11', name: '二网高区供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T12', name: '二网高区回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T13', name: '一网瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T14', name: '一网瞬时热量/GJ/h', width: 100, align: 'right' },
+                        { code: 'T15', name: '一网热量累计/GJ', width: 100, align: 'right' },
+                        { code: 'T16', name: '低区补水瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T17', name: '低区补水流量累计/m³', width: 100, align: 'right' },
+                        { code: 'T18', name: '高区补水瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T19', name: '高区补水流量累计/m³', width: 100, align: 'right' },
+                        { code: 'T20', name: '一网泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T21', name: '1号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T22', name: '低区2号循环频率反泵馈/Hz', width: 100, align: 'right' },
+                        { code: 'T23', name: '低区补水频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T24', name: '高区1号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T25', name: '高区2号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T26', name: '高区补水频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T27', name: '一网泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T28', name: '低区1号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T29', name: '低区2号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T30', name: '低区补水电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T31', name: '高区1号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T32', name: '高区2号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T33', name: '高区补水电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T34', name: '水箱水位高度/M', width: 100 },
+                    ]
+                });
+                break;
+            case 'V10010':
+                this.setState({
+                    columns: [
+                        { code: 'ReportTime', name: '记录时间', width: 100 },
+                        { code: 'T1', name: '一网供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T2', name: '一网回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T3', name: '二网低区供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T4', name: '二网低区回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T5', name: '二网高区供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T6', name: '二网高区回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T7', name: '一网供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T8', name: '一网回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T9', name: '二网低区供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T10', name: '低区回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T11', name: '二网高区供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T12', name: '二网高区回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T13', name: '一网瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T14', name: '一网瞬时热量/GJ/h', width: 100, align: 'right' },
+                        { code: 'T15', name: '一网热量累计/GJ', width: 100, align: 'right' },
+                        { code: 'T16', name: '低区补水瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T17', name: '低区补水流量累计/m³', width: 100, align: 'right' },
+                        { code: 'T18', name: '高区补水瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T19', name: '高区补水流量累计/m³', width: 100, align: 'right' },
+                        { code: 'T20', name: '一网泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T21', name: '1号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T22', name: '低区2号循环频率反泵馈/Hz', width: 100, align: 'right' },
+                        { code: 'T23', name: '低区补水频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T24', name: '高区1号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T25', name: '高区2号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T26', name: '高区补水频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T27', name: '一网泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T28', name: '低区1号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T29', name: '低区2号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T30', name: '低区补水电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T31', name: '高区1号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T32', name: '高区2号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T33', name: '高区补水电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T34', name: '水箱水位高度/M', width: 100, align: 'right' },
+                        { code: 'T35', name: '南区一网瞬时流量（1）/m³/h', width: 100, },
+                    ]
+                });
+                break;
+            case 'V10011':
+                this.setState({
+                    columns : [
+                        { code: 'ReportTime', name: '记录时间', width: 100 },
+                        { code: 'T1', name: '一网供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T2', name: '一网回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T3', name: '二网低区供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T4', name: '二网低区回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T5', name: '二网高区供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T6', name: '二网高区回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T7', name: '一网供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T8', name: '一网回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T9', name: '二网低区供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T10', name: '低区回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T11', name: '二网高区供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T12', name: '二网高区回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T13', name: '一网瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T14', name: '一网瞬时热量/GJ/h', width: 100, align: 'right' },
+                        { code: 'T15', name: '一网热量累计/GJ', width: 100, align: 'right' },
+                        { code: 'T16', name: '低区补水瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T17', name: '低区补水流量累计/m³', width: 100, align: 'right' },
+                        { code: 'T18', name: '高区补水瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T19', name: '高区补水流量累计/m³', width: 100, align: 'right' },
+                        { code: 'T20', name: '一网泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T21', name: '1号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T22', name: '低区2号循环频率反泵馈/Hz', width: 100, align: 'right' },
+                        { code: 'T23', name: '低区补水频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T24', name: '高区1号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T25', name: '高区2号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T26', name: '高区补水频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T27', name: '水箱水位高度/M', width: 100, align: 'right' },
+                        { code: 'T28', name: '一网热量累计(1)/M', width: 100 },
+                    ]
+                });
+                break;
+            case 'V10012':
+                this.setState({
+                    columns: [
+                        { code: 'ReportTime', name: '记录时间', width: 100 },
+                        { code: 'T1', name: '一网供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T2', name: '一网回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T3', name: '二网低区供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T4', name: '二网低区回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T5', name: '二网高区供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T6', name: '二网高区回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T7', name: '一网供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T8', name: '一网回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T9', name: '二网低区供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T10', name: '低区回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T11', name: '二网高区供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T12', name: '二网高区回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T13', name: '一网瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T14', name: '一网瞬时热量/GJ/h', width: 100, align: 'right' },
+                        { code: 'T15', name: '一网热量累计/GJ', width: 100, align: 'right' },
+                        { code: 'T16', name: '低区补水瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T17', name: '低区补水流量累计/m³', width: 100, align: 'right' },
+                        { code: 'T18', name: '高区补水瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T19', name: '高区补水流量累计/m³', width: 100, align: 'right' },
+                        { code: 'T20', name: '一网泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T21', name: '1号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T22', name: '低区2号循环频率反泵馈/Hz', width: 100, align: 'right' },
+                        { code: 'T23', name: '低区补水频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T24', name: '高区1号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T25', name: '高区2号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T26', name: '高区补水频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T27', name: '低区1号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T28', name: '低区2号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T29', name: '低区补水电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T30', name: '高区1号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T31', name: '高区2号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T32', name: '高区补水电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T33', name: '水箱水位高度/M', width: 100 },
+                    ]
+                });
+                break;
+            case 'V10013':
+            case 'V10014':
+            case 'V10015':
+            case 'V10017':
+            case 'V10018':
+            case 'V10019':
+            case 'V10021':
+            case 'V10022':
+            case 'V10023':
+                this.setState({
+                    columns: [
+                        { code: 'ReportTime', name: '记录时间', width: 100 },
+                        { code: 'T1', name: '一网供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T2', name: '一网回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T3', name: '二网低区供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T4', name: '二网低区回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T5', name: '二网中区供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T6', name: '二网中区回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T7', name: '二网高区回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T8', name: '二网高区供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T9', name: '一网供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T10', name: '一网回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T11', name: '二网低区供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T12', name: '二网低区回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T13', name: '二网中区供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T14', name: '二网中区回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T15', name: '二网高区供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T16', name: '二网高区回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T17', name: '一网瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T18', name: '一网瞬时热量/GJ/h', width: 100, align: 'right' },
+                        { code: 'T19', name: '一网热量累计/GJ', width: 100, align: 'right' },
+                        { code: 'T20', name: '低区补水瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T21', name: '低区补水流量累计/m³', width: 100, align: 'right' },
+                        { code: 'T22', name: '中区补水瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T23', name: '中区补水流量累计/m³', width: 100, align: 'right' },
+                        { code: 'T24', name: '高区补水瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T25', name: '高区补水流量累计/m³', width: 100, align: 'right' },
+                        { code: 'T26', name: '一网泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T27', name: '低区1号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T28', name: '低区2号循环频率反泵馈/Hz', width: 100, align: 'right' },
+                        { code: 'T29', name: '低区补水频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T30', name: '中区1号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T31', name: '中区2号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T32', name: '中区补水频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T33', name: '高区1号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T34', name: '高区2号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T35', name: '高区补水频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T36', name: '一网变频电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T37', name: '低区1号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T38', name: '低区2号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T39', name: '低区补水电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T40', name: '中区1号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T41', name: '中区2号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T42', name: '中区补水电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T43', name: '高区1号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T44', name: '高区2号循环泵电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T45', name: '高区补水电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T46', name: '水箱水位高度/M', width: 100 },
+                    ]
+                });
+                break;
+            case 'V10016':
+                this.setState({
+                    columns: [
+                        { code: 'ReportTime', name: '记录时间', width: 100 },
+                        { code: 'T1', name: '一网供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T2', name: '一网回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T3', name: '二网低区供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T4', name: '二网低区回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T5', name: '二网中区供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T6', name: '二网中区回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T7', name: '二网高区回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T8', name: '二网高区供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T9', name: '一网供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T10', name: '一网回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T11', name: '二网低区供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T12', name: '二网低区回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T13', name: '二网中区供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T14', name: '二网中区回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T15', name: '二网高区供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T16', name: '二网高区回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T17', name: '一网瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T18', name: '一网瞬时热量/GJ/h', width: 100, align: 'right' },
+                        { code: 'T19', name: '一网热量累计/GJ', width: 100, align: 'right' },
+                        { code: 'T20', name: '低区补水瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T21', name: '低区补水流量累计/m³', width: 100, align: 'right' },
+                        { code: 'T22', name: '中区补水瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T23', name: '中区补水流量累计/m³', width: 100, align: 'right' },
+                        { code: 'T24', name: '高区补水瞬时流量/m³/h', width: 100, align: 'right' },
+                        { code: 'T25', name: '高区补水流量累计/m³', width: 100, align: 'right' },
+                        { code: 'T26', name: '一网泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T27', name: '低区1号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T28', name: '低区2号循环频率反泵馈/Hz', width: 100, align: 'right' },
+                        { code: 'T29', name: '低区补水频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T30', name: '中区1号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T31', name: '中区2号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T32', name: '中区补水频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T33', name: '高区1号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T34', name: '高区2号循环泵频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T35', name: '高区补水频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T36', name: '一网变频电流反馈/A', width: 100, align: 'right' },
+                        { code: 'T37', name: '水箱水位高度/M', width: 100 },
+                    ]
+                });
+                break;
+            case 'V10020':
+                this.setState({
+                    columns : [
+                        { code: 'ReportTime', name: '记录时间', width: 100 },
+                        { code: 'T1', name: '一网供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T2', name: '一网回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T3', name: '二网供水温度/℃', width: 100, align: 'right' },
+                        { code: 'T4', name: '二网回水温度/℃', width: 100, align: 'right' },
+                        { code: 'T5', name: '一网供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T5', name: '一网供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T6', name: '一网回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T7', name: '二网供水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T8', name: '二网回水压力/MPa', width: 100, align: 'right' },
+                        { code: 'T9', name: '一网瞬时流量/ m³/h', width: 100, align: 'right' },
+                        { code: 'T10', name: '一网瞬时热量/ GJ/h', width: 100, align: 'right' },
+                        { code: 'T11', name: '一网热量累计/GJ', width: 100, align: 'right' },
+                        { code: 'T12', name: '补水瞬时流量/ m³/h', width: 100, align: 'right' },
+                        { code: 'T13', name: '补水流量累计/m³', width: 100, align: 'right' },
+                        { code: 'T14', name: '一网频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T15', name: '二网1号频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T16', name: '补水频率反馈/Hz', width: 100, align: 'right' },
+                        { code: 'T17', name: '水箱水位高度/M', width: 100 },
+                    ]
+                });
+                break;
+            
         }
     }
 
@@ -105,7 +399,7 @@ export default class Tableview extends Component<any, any> {
             return;
         };
         await axios({
-            baseURL: `http://127.0.0.1:5000/dbo:tb=${this.state.tableName}`,
+            baseURL: `http://127.0.0.1:5000/dbo:tb=${this.state.tableName}&date=${this.state.selectedDate}`,
             method: 'get',
         }).then(response => {
             this.setState({
