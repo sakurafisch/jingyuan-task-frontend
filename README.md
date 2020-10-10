@@ -55,6 +55,15 @@ yarn remove echarts
 
 表格已经可用。接下来准备做柱状图和折线图了。
 
+### 2020年10月10日
+
+完成柱状图、直方图、折线图、散点图、面积图
+
+## TODO
+
+1. 按时间段查询
+2. 数据分页显示
+
 ## 模板
 
 built by [DangoSky/react-scaffold-template](https://github.com/DangoSky/react-scaffold-template)
