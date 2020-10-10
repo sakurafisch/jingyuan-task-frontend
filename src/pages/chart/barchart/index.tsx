@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Select, Button, Row, Col, DatePicker} from 'antd';
 import { autobind } from 'core-decorators';
 import axios from 'axios';
-import { Column } from '@ant-design/charts';
+import { Column} from '@ant-design/charts';
 
 const { Option } = Select;
 const tableName = ['V10000', 'V10001', 'V10002', 'V10003', 'V10004', 'V10005', 'V10006', 'V10007', 'V10008', , 'V10009', 'V100010', 'V100011', 'V10012', , 'V10012', , 'V10013', 'V10014', 'V10015', 'V10016', 'V10017', 'V10018', 'V10019', 'V10020', 'V10021', 'V10022', 'V10023', 'V10024', 'V10025'];
@@ -115,6 +115,7 @@ export default class Barchart extends Component<any, any> {
             temperatureState: temperatureOfNet[value][0],
             tableState: areaMapTable.get(value),
             columnState: temperatureMapColumn.get(temperatureOfNet[value][0]),
+            responseDataState: [{}]
         });
     };
 
@@ -122,6 +123,7 @@ export default class Barchart extends Component<any, any> {
         this.setState({
             temperatureState: value,
             columnState: temperatureMapColumn.get(this.state.areaState[value]),
+            responseDataState: [{}]
         });
     };
 
@@ -175,7 +177,7 @@ export default class Barchart extends Component<any, any> {
             yAxis: {
                 max: 1000
             }
-          };
+        };
 
         return (
         <>

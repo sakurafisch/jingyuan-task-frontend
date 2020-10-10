@@ -3,6 +3,8 @@ import { RouteComponentProps } from 'react-router';
 import { HomePageCurComponents } from '../../../../enum';
 import './style.less';
 import { withRouter } from "react-router";
+import logoImg from 'img/logo.svg';
+
 
 
 interface Props extends RouteComponentProps {
@@ -15,6 +17,7 @@ class HOME extends Component<Props> {
 
         return (
             <div className="home-container">
+                <img src={logoImg}></img>
                 <div className="title-box">
                     <h1>你好，沈阳换热站</h1>
                 </div>

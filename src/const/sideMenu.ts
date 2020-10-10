@@ -27,7 +27,7 @@ export const siderMenu = [
     path: 'rectchart',
     component: Rectchart,
   }, {
-    text: '折线图',
+    text: '折线散点面积图',
     icon: 'line-chart',
     key: 'linechart',
     path: 'linechart',

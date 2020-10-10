@@ -7,6 +7,7 @@ import { HomePageCurComponents, LoginType } from 'src/enum';
 import { autobind } from 'core-decorators';
 import { MESSAGE_TIME } from '../../../../const/const'
 import axios from 'axios';
+import logoImg from 'img/logo.svg';
 
 
 interface Props extends FormComponentProps, RouteComponentProps {
@@ -76,7 +77,11 @@ class Signin extends Component<Props, any> {
         const { changeCurComponent } = this.props;
 
         return (
+
             <Form onSubmit={(e: any) => this.confirmLogin(e)} className="land-box">
+                <div  className="react-logo-container">
+                    <img src={logoImg} />
+                </div>
                 <Form.Item>
                     {getFieldDecorator('email', {
                         validateFirst: true,

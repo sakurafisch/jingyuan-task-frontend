@@ -114,6 +114,7 @@ export default class Rectchart extends Component<any, any> {
             temperatureState: temperatureOfNet[value][0],
             tableState: areaMapTable.get(value),
             columnState: temperatureMapColumn.get(temperatureOfNet[value][0]),
+            responseDataState: [{}]
         });
     };
 
@@ -121,6 +122,7 @@ export default class Rectchart extends Component<any, any> {
         this.setState({
             temperatureState: value,
             columnState: temperatureMapColumn.get(this.state.areaState[value]),
+            responseDataState: [{}]
         });
     };
 
