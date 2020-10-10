@@ -1,7 +1,7 @@
-import Barchart from '../pages/chart/barchart'
+import Rectchart from '../pages/chart/rectchart'
 import Linechart from '../pages/chart/linechart'
 import Tableview from '../pages/chart/tableview';
-import TableView from '../pages/chart/tableview'
+import Barchart from '../pages/chart/barchart';
 
 interface MenuComponent {
   [index: string]: any
@@ -14,12 +14,18 @@ export const siderMenu = [
     key: 'tableview',
     path: 'tableview',
     component: Tableview,
-    },{
+  }, {
     text: '柱状图',
     icon: 'bar-chart',
     key: 'barchart',
     path: 'barchart',
     component: Barchart,
+  }, {
+    text: '直方图',
+    icon: 'bar-chart',
+    key: 'rectchart',
+    path: 'rectchart',
+    component: Rectchart,
   }, {
     text: '折线图',
     icon: 'line-chart',
