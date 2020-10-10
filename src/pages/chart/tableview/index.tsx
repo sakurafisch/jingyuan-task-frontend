@@ -19,7 +19,7 @@ export default class Tableview extends Component<any, any> {
         }
     }
 
-    onDateChange(date: any, dateString: string): void {
+    onDateChange(date: moment.Moment, dateString: string): void {
         console.log(date, dateString);
         this.setState({
             selectedDate: dateString
@@ -430,7 +430,7 @@ export default class Tableview extends Component<any, any> {
                         optionFilterProp="children"
                         onChange={this.onSelectChange}
                     >
-                        <Option value="V10000">碧桂园</Option>
+                        <Option value="V10000">公租房</Option>
                         <Option value="V10001">翰博三期</Option>
                         <Option value="V10002">翰博二期</Option>
                         <Option value="V10003">丽景</Option>
