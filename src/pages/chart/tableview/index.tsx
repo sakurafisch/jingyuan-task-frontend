@@ -29,6 +29,16 @@ export default class Tableview extends Component<any, any> {
         });
     }
 
+    c2a() {
+        this.setState({
+            antdColumns: (this.state.columns).map((item: any) => ({
+                title: item.name,
+                dataIndex: item.code,
+                key: item.code
+            }))
+        }, () => console.log('antdColumns: ' + this.state.antdColumns));
+    }
+
     onSelectChange(value: string): void {
         console.log(`selected ${value}`);
         this.setState({
@@ -65,7 +75,7 @@ export default class Tableview extends Component<any, any> {
                         { code: 'T21', name: '补水电流反馈/A', width: 100, align: 'right' },
                         { code: 'T22', name: '水箱水位高度/M', width: 100 },
                     ],
-                });
+                }, this.c2a);
                 break;
             case 'V10004':
                 this.setState({
@@ -95,7 +105,7 @@ export default class Tableview extends Component<any, any> {
                         { code: 'T22', name: '水箱水位高度/M', width: 100, align: 'right' },
                         { code: 'T23', name: '室外温度/℃', width: 100 }
                     ]
-                });
+                }, this.c2a);
                 break;
             case 'V10005':
             case 'V10006':
@@ -142,7 +152,7 @@ export default class Tableview extends Component<any, any> {
                         { code: 'T33', name: '高区补水电流反馈/A', width: 100, align: 'right' },
                         { code: 'T34', name: '水箱水位高度/M', width: 100 },
                     ]
-                });
+                }, this.c2a);
                 break;
             case 'V10010':
                 this.setState({
@@ -184,7 +194,7 @@ export default class Tableview extends Component<any, any> {
                         { code: 'T34', name: '水箱水位高度/M', width: 100, align: 'right' },
                         { code: 'T35', name: '南区一网瞬时流量（1）/m³/h', width: 100, },
                     ]
-                });
+                }, this.c2a);
                 break;
             case 'V10011':
                 this.setState({
@@ -219,7 +229,7 @@ export default class Tableview extends Component<any, any> {
                         { code: 'T27', name: '水箱水位高度/M', width: 100, align: 'right' },
                         { code: 'T28', name: '一网热量累计(1)/M', width: 100 },
                     ]
-                });
+                }, this.c2a);
                 break;
             case 'V10012':
                 this.setState({
@@ -259,7 +269,7 @@ export default class Tableview extends Component<any, any> {
                         { code: 'T32', name: '高区补水电流反馈/A', width: 100, align: 'right' },
                         { code: 'T33', name: '水箱水位高度/M', width: 100 },
                     ]
-                });
+                }, this.c2a);
                 break;
             case 'V10013':
             case 'V10014':
@@ -320,7 +330,7 @@ export default class Tableview extends Component<any, any> {
                         { code: 'T45', name: '高区补水电流反馈/A', width: 100, align: 'right' },
                         { code: 'T46', name: '水箱水位高度/M', width: 100 },
                     ]
-                });
+                }, this.c2a);
                 break;
             case 'V10016':
                 this.setState({
@@ -364,7 +374,7 @@ export default class Tableview extends Component<any, any> {
                         { code: 'T36', name: '一网变频电流反馈/A', width: 100, align: 'right' },
                         { code: 'T37', name: '水箱水位高度/M', width: 100 },
                     ]
-                });
+                }, this.c2a);
                 break;
             case 'V10020':
                 this.setState({
@@ -388,19 +398,9 @@ export default class Tableview extends Component<any, any> {
                         { code: 'T16', name: '补水频率反馈/Hz', width: 100, align: 'right' },
                         { code: 'T17', name: '水箱水位高度/M', width: 100 },
                     ]
-                });
+                }, this.c2a);
                 break;
         }
-        this.forceUpdate();
-        this.setState({
-            antdColumns: (this.state.columns).map((item: any) => ({
-                title: item.name,
-                dataIndex: item.code,
-                key: item.code
-            }))
-        });
-        console.log(this.state.antdColumns);
-        this.forceUpdate();
     }
 
     async onSearchClick() {
@@ -441,7 +441,7 @@ export default class Tableview extends Component<any, any> {
     }
 
     render() {
-        const { currentPage, perPageSize } = this.state;
+        const { currentPage, perPageSize, data } = this.state;
         //对pagination参数进行设置
         const paginationProps = {
             showSizeChanger: true,
@@ -450,7 +450,7 @@ export default class Tableview extends Component<any, any> {
             pageSizeOptions:['50', '500', '5000'],
             // showTotal: () => `共${total}条`,
             current: currentPage,
-            total: 5000,
+            total: data.length,
             onShowSizeChange: (current: number, pageSize: number) => this.changePageSize(pageSize,current),
             onChange: (current: number) => this.onPageChange(current),
         };
