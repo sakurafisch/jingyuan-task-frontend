@@ -99,7 +99,7 @@ class Home extends Component<any, State> {
           >
             <MenuItem className="collapsed-btn" onClick={this.toggleSider}>
               <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}/>
-              <span>Paper Stack</span>
+              <span>沈阳换热站</span>
             </MenuItem>
 
             {this.createSider()}
