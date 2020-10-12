@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { DatePicker, Select, Row, Col, Button } from 'antd';
+import { DatePicker, Select, Row, Col, Button, Table } from 'antd';
 import { autobind } from 'core-decorators';
 import { ArtColumn, BaseTable } from 'ali-react-table';
 import axios from 'axios';
@@ -14,8 +14,11 @@ export default class Tableview extends Component<any, any> {
         this.state= {
             tableName: null,
             columns: [],
+            antdColumns: [],
             selectedDate: '',
-            data: ''
+            data: [{}],
+            currentPage: 1,
+            perPageSize: 500
         }
     }
 
@@ -44,7 +47,6 @@ export default class Tableview extends Component<any, any> {
                         { code: 'T3', name: '二网供水温度/℃', width: 100, align: 'right' },
                         { code: 'T4', name: '二网回水温度/℃', width: 100, align: 'right' },
                         { code: 'T5', name: '一网供水压力/MPa', width: 100, align: 'right' },
-                        { code: 'T5', name: '一网供水压力/MPa', width: 100, align: 'right' },
                         { code: 'T6', name: '一网回水压力/MPa', width: 100, align: 'right' },
                         { code: 'T7', name: '二网供水压力/MPa', width: 100, align: 'right' },
                         { code: 'T8', name: '二网回水压力/MPa', width: 100, align: 'right' },
@@ -62,7 +64,7 @@ export default class Tableview extends Component<any, any> {
                         { code: 'T20', name: '二网2号循环泵电流反馈/A', width: 100, align: 'right' },
                         { code: 'T21', name: '补水电流反馈/A', width: 100, align: 'right' },
                         { code: 'T22', name: '水箱水位高度/M', width: 100 },
-                    ]
+                    ],
                 });
                 break;
             case 'V10004':
@@ -373,7 +375,6 @@ export default class Tableview extends Component<any, any> {
                         { code: 'T3', name: '二网供水温度/℃', width: 100, align: 'right' },
                         { code: 'T4', name: '二网回水温度/℃', width: 100, align: 'right' },
                         { code: 'T5', name: '一网供水压力/MPa', width: 100, align: 'right' },
-                        { code: 'T5', name: '一网供水压力/MPa', width: 100, align: 'right' },
                         { code: 'T6', name: '一网回水压力/MPa', width: 100, align: 'right' },
                         { code: 'T7', name: '二网供水压力/MPa', width: 100, align: 'right' },
                         { code: 'T8', name: '二网回水压力/MPa', width: 100, align: 'right' },
@@ -389,8 +390,17 @@ export default class Tableview extends Component<any, any> {
                     ]
                 });
                 break;
-            
         }
+        this.forceUpdate();
+        this.setState({
+            antdColumns: (this.state.columns).map((item: any) => ({
+                title: item.name,
+                dataIndex: item.code,
+                key: item.code
+            }))
+        });
+        console.log(this.state.antdColumns);
+        this.forceUpdate();
     }
 
     async onSearchClick() {
@@ -416,8 +426,34 @@ export default class Tableview extends Component<any, any> {
             return;
         });
     }
-    
+
+    onPageChange = (current: number) => {
+        this.setState({
+            currentPage: current,
+        });
+    };
+
+    changePageSize(pageSize: number , current: number) {
+        // 将当前改变的每页条数存到state中
+        this.setState({
+            perPageSize: pageSize,
+        });
+    }
+
     render() {
+        const { currentPage, perPageSize } = this.state;
+        //对pagination参数进行设置
+        const paginationProps = {
+            showSizeChanger: true,
+            showQuickJumper: true,
+            pageSize:perPageSize,
+            pageSizeOptions:['50', '500', '5000'],
+            // showTotal: () => `共${total}条`,
+            current: currentPage,
+            total: 5000,
+            onShowSizeChange: (current: number, pageSize: number) => this.changePageSize(pageSize,current),
+            onChange: (current: number) => this.onPageChange(current),
+        };
         return (
             <>
             <Row>
@@ -468,7 +504,14 @@ export default class Tableview extends Component<any, any> {
                 </Col>
                 <Col span={6} />
             </Row>
-            <BaseTable dataSource={this.state.data} columns={this.state.columns}></BaseTable>
+            {/* <BaseTable dataSource={this.state.data} columns={this.state.columns}></BaseTable> */}
+            <Table
+                columns={this.state.antdColumns}
+                dataSource={this.state.data}
+                pagination={paginationProps}
+                rowKey='ReportTime'
+            >
+            </Table>
           </>
         )
     }
