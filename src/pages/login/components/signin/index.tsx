@@ -37,7 +37,7 @@ class Signin extends Component<Props, any> {
             }
 
             const response = await axios({
-                baseURL: 'http://127.0.0.1:5000/',
+                baseURL: 'http://127.0.0.1:5000/login',
                 method: 'get',
                 auth: {
                     username: values.email.split('@')[0],
