@@ -136,7 +136,7 @@ export default class Rectchart extends Component<any, any> {
             return;
         }
         await axios({
-            baseURL: `http://127.0.0.1:5000/chart:tb=${this.state.tableState}&column=${this.state.columnState}&date=${this.state.dateState}`,
+            baseURL: `http://api.jingyuan.winnerwinter.com/chart:tb=${this.state.tableState}&column=${this.state.columnState}&date=${this.state.dateState}`,
             method: 'get',
         }).then(response => {
             this.setState({

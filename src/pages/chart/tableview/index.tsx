@@ -409,7 +409,7 @@ export default class Tableview extends Component<any, any> {
             return;
         };
         await axios({
-            baseURL: `http://127.0.0.1:5000/dbo:tb=${this.state.tableName}&date=${this.state.selectedDate}`,
+            baseURL: `http://api.jingyuan.winnerwinter.com/dbo:tb=${this.state.tableName}&date=${this.state.selectedDate}`,
             method: 'get',
         }).then(response => {
             this.setState({

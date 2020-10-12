@@ -136,7 +136,7 @@ export default class Linechart extends Component<any, any> {
             return;
         }
         await axios({
-            baseURL: `http://127.0.0.1:5000/time:tb=${this.state.tableState}&column=${this.state.columnState}&date=${this.state.dateState}`,
+            baseURL: `http://api.jingyuan.winnerwinter.com/time:tb=${this.state.tableState}&column=${this.state.columnState}&date=${this.state.dateState}`,
             method: 'get',
         }).then(response => {
             this.setState({
