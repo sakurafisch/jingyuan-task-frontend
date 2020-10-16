@@ -4,7 +4,6 @@ const {
   CleanWebpackPlugin
 } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const WebpackDeepScopeAnalysisPlugin = require('webpack-deep-scope-plugin').default;
 
 const postCssLoaderConfig = {
   loader: 'postcss-loader',
@@ -39,7 +38,6 @@ const commonConfig = {
     new MiniCssExtractPlugin({
       filename: "static/css/[name].[hash].css",
     }),
-    new WebpackDeepScopeAnalysisPlugin()
   ],
   module: {
     rules: [{
@@ -76,6 +74,20 @@ const commonConfig = {
         }]
       }
     ]
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vender: {
+          chunks: 'all',
+          name: 'vender',
+          test: (module) => {
+            return /[\\/]node_modules[\\/](lodash|moment|react|react-dom|react-router|react-router-dom|axios|antd)/.test(module.context);
+          },
+          priority: 10,
+        },
+      }
+    }
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
